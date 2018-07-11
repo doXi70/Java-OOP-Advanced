@@ -1,4 +1,4 @@
-package p01_Generic_Box;
+package p02_Generic_Box_of_Integer;
 
 public class Box<T> {
     private T item;

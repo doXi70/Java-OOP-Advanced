@@ -1,12 +1,12 @@
 package p08_CustomListSorter;
 
-import p07_CustomList.customCollections.contracts.CustomList;
-import p07_CustomList.customCollections.impl.CustomListImpl;
+
+
+import p08_CustomListSorter.customCollections.impl.CustomListImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Collections;
 
 @SuppressWarnings("Duplicates")
 public class Main {
@@ -47,7 +47,7 @@ public class Main {
                     System.out.print(list);
                     break;
                 case "Sort":
-
+                    Sorter.sort(list);
                     break;
             }
 

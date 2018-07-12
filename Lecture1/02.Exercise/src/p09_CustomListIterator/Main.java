@@ -1,7 +1,7 @@
 package p09_CustomListIterator;
 
 
-import p09_CustomListIterator.customCollections.contracts.CustomList;
+
 import p09_CustomListIterator.customCollections.impl.CustomListImpl;
 
 import java.io.BufferedReader;
@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        CustomList<String> list = new CustomListImpl<>();
+        CustomListImpl<String> list = new CustomListImpl<>();
 
         String line = reader.readLine();
         while (!"END".equals(line)) {
@@ -44,7 +44,10 @@ public class Main {
                     System.out.println(list.getMin());
                     break;
                 case "Print":
-                    System.out.println(list);
+                    System.out.print(list);
+                    break;
+                case "Sort":
+                    Sorter.sort(list);
                     break;
             }
 

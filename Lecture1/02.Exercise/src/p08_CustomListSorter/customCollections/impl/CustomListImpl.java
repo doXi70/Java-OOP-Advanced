@@ -38,13 +38,9 @@ public class CustomListImpl<T extends Comparable<T>> implements CustomList<T> {
         }
 
         T firstItem = this.elements.get(firstIndex);
-        T secondItem = this.elements.get(secondIndex);
+        this.elements.set(firstIndex, this.elements.get(secondIndex));
+        this.elements.set(secondIndex, firstItem);
 
-        this.elements.add(firstIndex, secondItem);
-        this.elements.remove(firstIndex + 1);
-
-        this.elements.add(secondIndex, firstItem);
-        this.elements.remove(secondIndex + 1);
     }
 
     @Override
@@ -84,6 +80,10 @@ public class CustomListImpl<T extends Comparable<T>> implements CustomList<T> {
 
     public int size() {
         return this.elements.size();
+    }
+
+    public void sort() {
+        Collections.sort(this.elements);
     }
 
     @Override

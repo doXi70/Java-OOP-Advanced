@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+@SuppressWarnings("Duplicates")
 public class CustomListImpl<T extends Comparable<T>> implements CustomList<T>, Iterable<T> {
     private List<T> elements;
 
@@ -38,13 +39,9 @@ public class CustomListImpl<T extends Comparable<T>> implements CustomList<T>, I
         }
 
         T firstItem = this.elements.get(firstIndex);
-        T secondItem = this.elements.get(secondIndex);
+        this.elements.set(firstIndex, this.elements.get(secondIndex));
+        this.elements.set(secondIndex, firstItem);
 
-        this.elements.add(firstIndex, secondItem);
-        this.elements.remove(firstIndex + 1);
-
-        this.elements.add(secondIndex, firstItem);
-        this.elements.remove(secondIndex + 1);
     }
 
     @Override
@@ -78,8 +75,16 @@ public class CustomListImpl<T extends Comparable<T>> implements CustomList<T>, I
         return null;
     }
 
+    protected List<T> getElements() {
+        return Collections.unmodifiableList(this.elements);
+    }
+
     public int size() {
         return this.elements.size();
+    }
+
+    public void sort() {
+        Collections.sort(this.elements);
     }
 
     @Override
